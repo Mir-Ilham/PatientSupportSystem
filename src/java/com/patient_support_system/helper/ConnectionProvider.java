@@ -12,7 +12,7 @@ public class ConnectionProvider {
                 // Load driver class
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 // Create a connection
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mint_blog", "ilham", "23498Devel$");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/patient_support_system", "ilham", "23498Devel$");
             }
         } catch (SQLException | ClassNotFoundException ex) {
             ex.printStackTrace();
