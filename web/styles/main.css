@@ -2,3 +2,8 @@
     background: #1e88e5 !important;
 }
 
+/* || Utilities */
+
+.hide {
+    display: none;
+}

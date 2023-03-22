@@ -1,3 +1,13 @@
+<%@page import="com.patient_support_system.entities.Patient"%>
+<%@page import="com.patient_support_system.entities.Doctor"%>
+<%
+    Doctor doctor_user = (Doctor) session.getAttribute("currentDoctor");
+    Patient patient_user = (Patient) session.getAttribute("currentPatient");
+    String admin_user = (String) session.getAttribute("currentUser");
+    if (admin_user != null || doctor_user != null || patient_user != null) {
+        response.sendRedirect("home.jsp");
+    }
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.patient_support_system.entities.Message"%>
 <!DOCTYPE html>
@@ -29,8 +39,7 @@
                         <p>Login Here</p>
                     </div>
                     <div class="card-body bg-white text-dark">
-                        <%
-                            Message msg = (Message) session.getAttribute("msg");
+                        <%                            Message msg = (Message) session.getAttribute("msg");
                             if (msg != null) {
                         %>
                         <div class="alert <%= msg.getCssClass()%> p-1" role="alert">
@@ -43,11 +52,11 @@
                         <form action="LoginServlet" method="post">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" name="name">
+                                <input type="text" class="form-control" id="name" name="name" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="user-type">Select user type</label>

@@ -23,12 +23,11 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String name, String password, Date date_of_birth, String gender, Timestamp date_registered) {
+    public Patient(String name, String password, Date date_of_birth, String gender) {
         this.name = name;
         this.password = password;
         this.date_of_birth = date_of_birth;
         this.gender = gender;
-        this.date_registered = date_registered;
     }
 
     public int getPatient_id() {
