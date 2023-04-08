@@ -1,3 +1,17 @@
+<%@page import="com.patient_support_system.entities.Patient"%>
+<%@page import="com.patient_support_system.entities.Doctor"%>
+<%
+    Doctor doctor_user = (Doctor) session.getAttribute("currentDoctor");
+    Patient patient_user = (Patient) session.getAttribute("currentPatient");
+    String admin_user = (String) session.getAttribute("currentUser");
+    if (admin_user != null) {
+        response.sendRedirect("admin_dashboard.jsp");
+    } else if (doctor_user != null) {
+        response.sendRedirect("doctor_dashboard.jsp");
+    } else if (patient_user != null) {
+        response.sendRedirect("doctor_dashboard.jsp");
+    }
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.patient_support_system.entities.Message"%>
 <!DOCTYPE html>
@@ -57,6 +71,19 @@
                                 <label for="gender" class="form-label">Select Gender</label><br>
                                 <input type="radio" id="gender" name="gender" value="male" checked> Male
                                 <input type="radio" id="gender" name="gender" value="female"> Female
+                            </div>
+                            <div class="mb-3">
+                                <label for="blood-group" class="form-label">Blood group</label>
+                                <select class="form-select" id="blood-group" name="blood-group" aria-label="Select blood group">
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
                             </div>
                             <div class="container text-center hide" id="loader">
                                 <span class="fa fa-arrow-rotate-right fa-spin fa-4x"></span>

@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles/main.css" />
+        <link rel="stylesheet" href="../styles/main.css" />
         <!-- Bootstrap CSS -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -23,27 +23,12 @@
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
               integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
               crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>Doctor's Dashboard</title>
+        <title>View appointments</title>
     </head>
     <body>
         <!-- Navbar -->
-        <%@include file="page-components/user_navbar.jsp" %>
-        <!-- Doctor options -->
-        <div class="container-fluid primary-background p-5 text-white">
-            <div class="row">
-                <div class="card col-md-4 offset-md-4 primary-background border-0">
-                    <div class="card-header text-center border border-light">
-                        <p>Doctor Options</p>
-                    </div>
-                    <div class="card-body bg-white text-dark">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><a href="doctor-views/view_appointments.jsp">View appointments</a></li>
-                            <li class="list-group-item"><a href="doctor-views/view_prescriptions.jsp">View prescriptions</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <%@include file="../page-components/user_navbar.jsp" %>
+        <h1>View appointments</h1>
         <!-- Bootstrap Bundle with Popper -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

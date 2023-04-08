@@ -32,6 +32,7 @@ public class PatientRegisterServlet extends HttpServlet {
             String name = request.getParameter("name");
             String password = request.getParameter("password");
             String gender = request.getParameter("gender");
+            String bloodGroup = request.getParameter("blood-group");
             // Parse date-of-birth
             String pattern = "yyyy-MM-dd";
             SimpleDateFormat format = new SimpleDateFormat(pattern);
@@ -44,18 +45,17 @@ public class PatientRegisterServlet extends HttpServlet {
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             
             // Creating patient data object
-            // Fix below statements
-//            Patient patient = new Patient(name, password, sqlDate, gender);
+            Patient patient = new Patient(name, password, sqlDate, gender, bloodGroup);
 
             // Creating a patient dao object
             PatientDao dao = new PatientDao(ConnectionProvider.getConnection());
 
             // Insert patient data into database
-//            if (dao.savePatient(patient)) {
-//                out.println("Done");
-//            } else {
-//                out.println("Error");
-//            }
+            if (dao.savePatient(patient)) {
+                out.println("Done");
+            } else {
+                out.println("Error");
+            }
         }
     }
 

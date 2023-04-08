@@ -4,8 +4,12 @@
     Doctor doctor_user = (Doctor) session.getAttribute("currentDoctor");
     Patient patient_user = (Patient) session.getAttribute("currentPatient");
     String admin_user = (String) session.getAttribute("currentUser");
-    if (admin_user != null || doctor_user != null || patient_user != null) {
-        response.sendRedirect("home.jsp");
+    if (admin_user != null) {
+        response.sendRedirect("admin_dashboard.jsp");
+    } else if (doctor_user != null) {
+        response.sendRedirect("doctor_dashboard.jsp");
+    } else if (patient_user != null) {
+        response.sendRedirect("doctor_dashboard.jsp");
     }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -39,7 +43,7 @@
                         <p>Login Here</p>
                     </div>
                     <div class="card-body bg-white text-dark">
-                        <%                            Message msg = (Message) session.getAttribute("msg");
+                        <%  Message msg = (Message) session.getAttribute("msg");
                             if (msg != null) {
                         %>
                         <div class="alert <%= msg.getCssClass()%> p-1" role="alert">

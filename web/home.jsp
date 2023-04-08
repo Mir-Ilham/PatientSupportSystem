@@ -1,3 +1,17 @@
+<%@page import="com.patient_support_system.entities.Patient"%>
+<%@page import="com.patient_support_system.entities.Doctor"%>
+<%
+    Doctor doctor_user = (Doctor) session.getAttribute("currentDoctor");
+    Patient patient_user = (Patient) session.getAttribute("currentPatient");
+    String admin_user = (String) session.getAttribute("currentUser");
+    if (admin_user != null) {
+        response.sendRedirect("admin_dashboard.jsp");
+    } else if (doctor_user != null) {
+        response.sendRedirect("doctor_dashboard.jsp");
+    } else if (patient_user != null) {
+        response.sendRedirect("doctor_dashboard.jsp");
+    }
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -47,14 +61,8 @@
                     responses to our standard questionnaire today.
                     We look forward to helping you on your healthcare journey.
                 </p>
-                <%
-                    if (doctor == null && patient == null && admin == null) {
-                %>
                 <a href="register_page.jsp" class="btn btn-lg btn-outline-light"><span class="fa fa-user-plus"></span> Register</a>
                 <a href="login_page.jsp" class="btn btn-lg btn-outline-light"><span class="fa fa-user"></span> Login</a>
-                <%
-                    }
-                %>
             </div>
         </div>
         <!-- Bootstrap Bundle with Popper -->
