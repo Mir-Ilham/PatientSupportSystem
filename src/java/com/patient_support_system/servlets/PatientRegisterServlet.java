@@ -44,17 +44,18 @@ public class PatientRegisterServlet extends HttpServlet {
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             
             // Creating patient data object
-            Patient patient = new Patient(name, password, sqlDate, gender);
+            // Fix below statements
+//            Patient patient = new Patient(name, password, sqlDate, gender);
 
             // Creating a patient dao object
             PatientDao dao = new PatientDao(ConnectionProvider.getConnection());
 
             // Insert patient data into database
-            if (dao.savePatient(patient)) {
-                out.println("Done");
-            } else {
-                out.println("Error");
-            }
+//            if (dao.savePatient(patient)) {
+//                out.println("Done");
+//            } else {
+//                out.println("Error");
+//            }
         }
     }
 

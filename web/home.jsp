@@ -47,8 +47,14 @@
                     responses to our standard questionnaire today.
                     We look forward to helping you on your healthcare journey.
                 </p>
+                <%
+                    if (doctor == null && patient == null && admin == null) {
+                %>
                 <a href="register_page.jsp" class="btn btn-lg btn-outline-light"><span class="fa fa-user-plus"></span> Register</a>
                 <a href="login_page.jsp" class="btn btn-lg btn-outline-light"><span class="fa fa-user"></span> Login</a>
+                <%
+                    }
+                %>
             </div>
         </div>
         <!-- Bootstrap Bundle with Popper -->

@@ -4,38 +4,40 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Patient {
-    private int patient_id;
+    private int patientId;
     private String name;
     private String password;
-    private Date date_of_birth;
+    private Date dateOfBirth;
     private String gender;
-    private Timestamp date_registered;
+    private String bloodGroup;
+    private Timestamp dateRegistered;
 
-    public Patient(int patient_id, String name, String password, Date date_of_birth, String gender, Timestamp date_registered) {
-        this.patient_id = patient_id;
+    public Patient(int patientId, String name, Date dateOfBirth, String gender, String bloodGroup, Timestamp dateRegistered) {
+        this.patientId = patientId;
         this.name = name;
-        this.password = password;
-        this.date_of_birth = date_of_birth;
+        this.dateOfBirth = dateOfBirth;
         this.gender = gender;
-        this.date_registered = date_registered;
+        this.bloodGroup = bloodGroup;
+        this.dateRegistered = dateRegistered;
     }
 
     public Patient() {
     }
 
-    public Patient(String name, String password, Date date_of_birth, String gender) {
+    public Patient(String name, String password, Date dateOfBirth, String gender, String bloodGroup) {
         this.name = name;
         this.password = password;
-        this.date_of_birth = date_of_birth;
+        this.dateOfBirth = dateOfBirth;
         this.gender = gender;
+        this.bloodGroup = bloodGroup;
     }
 
-    public int getPatient_id() {
-        return patient_id;
+    public int getPatientId() {
+        return patientId;
     }
 
-    public void setPatient_id(int patient_id) {
-        this.patient_id = patient_id;
+    public void setPatientId(int patientId) {
+        this.patientId = patientId;
     }
 
     public String getName() {
@@ -54,12 +56,12 @@ public class Patient {
         this.password = password;
     }
 
-    public Date getDate_of_birth() {
-        return date_of_birth;
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDate_of_birth(Date date_of_birth) {
-        this.date_of_birth = date_of_birth;
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getGender() {
@@ -70,13 +72,20 @@ public class Patient {
         this.gender = gender;
     }
 
-    public Timestamp getDate_registered() {
-        return date_registered;
+    public String getBloodGroup() {
+        return bloodGroup;
     }
 
-    public void setDate_registered(Timestamp date_registered) {
-        this.date_registered = date_registered;
+    public void setBloodGroup(String bloodGroup) {
+        this.bloodGroup = bloodGroup;
     }
     
+    public Timestamp getDateRegistered() {
+        return dateRegistered;
+    }
+
+    public void setDateRegistered(Timestamp dateRegistered) {
+        this.dateRegistered = dateRegistered;
+    }
     
 }
