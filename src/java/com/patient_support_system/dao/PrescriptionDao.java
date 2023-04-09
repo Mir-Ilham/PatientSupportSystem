@@ -87,7 +87,7 @@ public class PrescriptionDao {
         return prescriptions;
     }
     
-    public Prescription getPrescriptionByPrescriptionId(int prescriptionId) {
+    public Prescription getPrescriptionById(int prescriptionId) {
         // Get a prescription using prescription id from database 
         Prescription prescription = null;
 

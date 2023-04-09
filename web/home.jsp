@@ -9,7 +9,7 @@
     } else if (doctor_user != null) {
         response.sendRedirect("doctor_dashboard.jsp");
     } else if (patient_user != null) {
-        response.sendRedirect("doctor_dashboard.jsp");
+        response.sendRedirect("patient_dashboard.jsp");
     }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,10 +34,10 @@
         <!-- Navbar -->
         <%@include file="page-components/navbar.jsp" %>
         <!-- Banner -->
-        <div class="container-fluid primary-background text-white p-5">
-            <div class="container">
-                <h3 class="fw-light display-3">Welcome to the Dodo Medic</h3>
-                <p>The online patient support system that cares for you!</p>
+        <div class="container border-primary text-secondary p-5 mt-5 rounded-3">
+            <h3 class="fw-light display-3 text-custom">Welcome to the Dodo Medic</h3>
+            <article class="mt-2 mb-3">
+                <p class="fs-3">The online patient support system that cares for you!</p>
                 <p>
                     Welcome to our website, designed to help you receive the
                     healthcare you need in a fast, efficient, and personalized way.
@@ -56,14 +56,9 @@
                     Additionally, we take your privacy and security seriously, ensuring
                     that all of your personal and medical information is protected and kept confidential.
                 </p>
-                <p>
-                    So, take the first step towards better health and submit your
-                    responses to our standard questionnaire today.
-                    We look forward to helping you on your healthcare journey.
-                </p>
-                <a href="register_page.jsp" class="btn btn-lg btn-outline-light"><span class="fa fa-user-plus"></span> Register</a>
-                <a href="login_page.jsp" class="btn btn-lg btn-outline-light"><span class="fa fa-user"></span> Login</a>
-            </div>
+            </article>
+            <a href="register_page.jsp" class="btn btn-lg btn-outline-primary"><span class="fa fa-user-plus"></span> Register</a>
+            <a href="login_page.jsp" class="btn btn-lg btn-outline-primary"><span class="fa fa-user"></span> Login</a>
         </div>
         <!-- Bootstrap Bundle with Popper -->
         <script

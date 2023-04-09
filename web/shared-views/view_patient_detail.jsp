@@ -1,3 +1,5 @@
+<%@page import="com.patient_support_system.dao.PatientDao"%>
+<%@page import="com.patient_support_system.helper.ConnectionProvider"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,12 +22,49 @@
     <body>
         <!-- Navbar -->
         <%@include file="../page-components/user_navbar.jsp" %>
-        <h1>View patient's detail</h1>
-        <%
-            String id = request.getParameter("id");
-        %>
-        <%= id %>
-        <a href="../doctor-views/add_prescription.jsp?id=<%= id %>">Add prescription</a>
+        <%            int patientId = Integer.parseInt(request.getParameter("id"));
+            PatientDao dao = new PatientDao(ConnectionProvider.getConnection());
+            Patient selected = dao.getPatientById(patientId);
+        %>   
+        <div class="container p-4">
+            <%            
+                if (admin == null && patient == null) {
+            %>
+            <a class="btn primary-background text-light mb-3" href="../doctor-views/add_prescription.jsp?id=<%= patientId%>">Add prescription</a>
+            <%
+                }
+            %>
+            <div class="card border-primary" style="width: 20rem;">
+                <img src="../images/default.png" class="card-img-top" alt="Doctor profile picture">
+                <div class="card-body">
+                    <h5 class="card-title text-custom"><%= selected.getName()%></h5>
+                    <p class="card-text">
+                        <%
+                            if (selected.getGender().equals("male")) {
+                        %>
+                        Mr.
+                        <%
+                        } else {
+                        %>
+                        Mrs.
+                        <%
+                            }
+                        %>
+                        <%= selected.getName()%> is a registered patient seeking medical support.
+                    </p>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-primary">Patient Id: <%= selected.getPatientId()%></li>
+                        <li class="list-group-item border-primary">Date of birth: <%=  selected.getDateOfBirth()%></li>
+                        <li class="list-group-item border-primary">Gender: <%=  selected.getGender()%></li>
+                        <li class="list-group-item border-primary">Blood group: <%=  selected.getBloodGroup()%></li>
+                        <li class="list-group-item border-primary">Date registered: <%=  selected.getDateRegistered()%></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <a href="../doctor-views/add_prescription.jsp?id=<%= patientId%>">Add prescription</a>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

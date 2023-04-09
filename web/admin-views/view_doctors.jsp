@@ -49,7 +49,7 @@
                 %>
                 <tr>
                     <th scope="row"><%= d.getDoctorId() %></th>
-                    <td><%= d.getName() %></td>
+                    <td><a href="../shared-views/view_doctor_detail.jsp?id=<%= d.getDoctorId() %>"><%= d.getName() %><a></td>
                     <td><%= d.getSpecialization() %></td>
                 </tr>                
                 <%

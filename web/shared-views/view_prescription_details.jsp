@@ -1,3 +1,6 @@
+<%@page import="com.patient_support_system.entities.Prescription"%>
+<%@page import="com.patient_support_system.dao.PrescriptionDao"%>
+<%@page import="com.patient_support_system.helper.ConnectionProvider"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,17 +17,43 @@
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
               integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
               crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="scripts/adminViewController.js" type="text/javascript" defer></script>
         <title>View prescription details</title>
     </head>
     <body>
         <!-- Navbar -->
         <%@include file="../page-components/user_navbar.jsp" %>
-        <h1>View prescription details</h1>
-        <%
-            String id = request.getParameter("id");
+        <%            
+            int prescriptionId = Integer.parseInt(request.getParameter("id"));
+            PrescriptionDao dao = new PrescriptionDao(ConnectionProvider.getConnection());
+            Prescription selected = dao.getPrescriptionById(prescriptionId);
         %>
-        <%= id %>
+        <div class="container p-4">
+            <div class="card border-primary" style="width: 20rem;">
+                <div class="card-body">
+                    <h5 class="card-title text-custom">Prescription <%= selected.getPrescriptionId()%></h5>
+                    <p class="card-text">
+                        <%= selected.getPrescriptionText()%>
+                    </p>
+                </div>
+
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-primary">
+                            <a href="view_doctor_detail.jsp?id=<%= selected.getDoctorId() %>">
+                                Doctor id: <%= selected.getDoctorId()%>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-primary">
+                            <a href="view_doctor_detail.jsp?id=<%= selected.getPatientId()%>">
+                                Patient id: <%= selected.getPatientId()%>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-primary">Date prescribed: <%= selected.getDatePrescribed()%></li>
+                        <li class="list-group-item">Prescription end date: <%= selected.getEndDate()%></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

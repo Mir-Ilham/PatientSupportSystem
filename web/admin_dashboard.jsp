@@ -20,12 +20,11 @@
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
               integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
               crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="scripts/adminViewController.js" type="text/javascript" defer></script>
         <title>Admin's Dashboard</title>
     </head>
     <body>
         <!-- Navbar -->
-        <%@include file="page-components/user_navbar.jsp" %>
+        <%@include file="page-components/user_navbar_home.jsp" %>
         <!-- Admin options -->
         <div class="container-fluid primary-background p-5 text-white">
             <div class="row">

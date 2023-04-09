@@ -44,6 +44,7 @@
                     <th scope="col">Gender</th>
                     <th scope="col">Blood group</th>
                     <th scope="col">Date registered</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>       
@@ -52,11 +53,13 @@
                 %>
                 <tr>
                     <th scope="row"><%= p.getPatientId()%></th>
-                    <td><a href="view_patient_answers.jsp?id=<%= p.getPatientId()%>"><%= p.getName()%></a></td>
+                    <!--Remove the href from here-->
+                    <td><a href="../shared-views/view_patient_detail.jsp?id=<%= p.getPatientId()%>"><%= p.getName()%></a></td>
                     <td><%= p.getDateOfBirth()%></td>
                     <td><%= p.getGender()%></td>
                     <td><%= p.getBloodGroup()%></td>
                     <td><%= p.getDateRegistered()%></td>
+                    <td><a href="view_patient_answers.jsp?id=<%= p.getPatientId()%>">View responses</a></td>
                 </tr>                
                 <%
                     }

@@ -1,3 +1,5 @@
+<%@page import="com.patient_support_system.dao.DoctorDao"%>
+<%@page import="com.patient_support_system.helper.ConnectionProvider"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,8 +22,31 @@
     <body>
         <!-- Navbar -->
         <%@include file="../page-components/user_navbar.jsp" %>
-        <h1>View doctor's detail</h1>
-        <%= request.getParameter("id") %>
+        <%            
+            int doctorId = Integer.parseInt(request.getParameter("id"));
+            DoctorDao dao = new DoctorDao(ConnectionProvider.getConnection());
+            Doctor selected = dao.getDoctorById(doctorId);
+        %>
+        <div class="container p-4">
+            <div class="card border-primary" style="width: 20rem;">
+                <img src="../images/<%= selected.getDoctorProfile()%>" class="card-img-top" alt="Doctor profile picture">
+                <div class="card-body">
+                    <h5 class="card-title text-custom"><%= selected.getName()%></h5>
+                    <p class="card-text">
+                        Dr. <%= selected.getName()%> specializes in the department of <%= selected.getSpecialization()%>
+                    </p>
+                </div>
+
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-primary">Doctor Id: <%= selected.getDoctorId()%></li>
+                        <li class="list-group-item">Specialization <%= selected.getSpecialization()%></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
         <!-- Bootstrap Bundle with Popper -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

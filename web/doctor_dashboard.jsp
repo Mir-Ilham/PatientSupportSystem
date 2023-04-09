@@ -27,7 +27,7 @@
     </head>
     <body>
         <!-- Navbar -->
-        <%@include file="page-components/user_navbar.jsp" %>
+        <%@include file="page-components/user_navbar_home.jsp" %>
         <!-- Doctor options -->
         <div class="container-fluid primary-background p-5 text-white">
             <div class="row">

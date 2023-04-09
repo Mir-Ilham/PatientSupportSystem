@@ -9,7 +9,7 @@
     } else if (doctor_user != null) {
         response.sendRedirect("doctor_dashboard.jsp");
     } else if (patient_user != null) {
-        response.sendRedirect("doctor_dashboard.jsp");
+        response.sendRedirect("patient_dashboard.jsp");
     }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -35,14 +35,14 @@
         <!-- Navbar -->
         <%@include file="page-components/navbar.jsp" %>
         <!-- Login Form -->
-        <div class="container-fluid primary-background p-5 text-white">
+        <div class="container-fluid p-5">
             <div class="row">
-                <div class="card col-md-4 offset-md-4 primary-background border-0">
-                    <div class="card-header text-center border border-light">
+                <div class="card col-md-4 offset-md-4 rounded border-0 p-0">
+                    <div class="card-header primary-background text-white text-center">
                         <span class="fa fa-address-card fa-2x"></span>
                         <p>Login Here</p>
                     </div>
-                    <div class="card-body bg-white text-dark">
+                    <div class="card-body rounded-bottom border-start border-end border-bottom border-primary">
                         <%  Message msg = (Message) session.getAttribute("msg");
                             if (msg != null) {
                         %>

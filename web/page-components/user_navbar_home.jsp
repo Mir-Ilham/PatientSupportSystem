@@ -17,38 +17,38 @@
                     if (admin != null) {
                 %>
                 <li class="nav-item">
-                    <a  href="../admin_dashboard.jsp" class="nav-link active" aria-current="page"><span class="fa fa-square-h"></span> Home</a>
+                    <a  href="#" class="nav-link active" aria-current="page"><span class="fa fa-square-h"></span> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="../admin_dashboard.jsp"><span class="fa fa-user-circle"></span> Admin</a>
+                    <a class="nav-link active" href="admin_dashboard.jsp"><span class="fa fa-user-circle"></span> Admin</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../LogoutServlet?user=admin"><span class="fa fa-arrow-right-from-bracket"></span> Logout</a>
+                    <a class="nav-link" href="LogoutServlet?user=admin"><span class="fa fa-arrow-right-from-bracket"></span> Logout</a>
                 </li>
                 <%
                 } else if (doctor != null) {
                 %>
                 <li class="nav-item">
-                    <a  href="../doctor_dashboard.jsp" class="nav-link active" aria-current="page"><span class="fa fa-square-h"></span> Home</a>
+                    <a  href="#" class="nav-link active" aria-current="page"><span class="fa fa-square-h"></span> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="../shared-views/view_doctor_detail.jsp?id=<%= doctor.getDoctorId() %>"><span class="fa fa-user-circle"></span> <%= doctor.getName()%></a>
+                    <a class="nav-link active" href="shared-views/view_doctor_detail.jsp?id=<%= doctor.getDoctorId() %>"><span class="fa fa-user-circle"></span> <%= doctor.getName()%></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../LogoutServlet?user=doctor"><span class="fa fa-arrow-right-from-bracket"></span> Logout</a>
+                    <a class="nav-link" href="LogoutServlet?user=doctor"><span class="fa fa-arrow-right-from-bracket"></span> Logout</a>
                 </li>
 
                 <%
                 } else if (patient != null) {
                 %>
                 <li class="nav-item">
-                    <a  href="../patient_dashboard.jsp" class="nav-link active" aria-current="page"><span class="fa fa-square-h"></span> Home</a>
+                    <a  href="#" class="nav-link active" aria-current="page"><span class="fa fa-square-h"></span> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="../shared-views/view_patient_detail.jsp?id=<%= patient.getPatientId() %>"><span class="fa fa-user-circle"></span> <%= patient.getName()%></a>
+                    <a class="nav-link active" href="shared-views/view_patient_detail.jsp?id=<%= patient.getPatientId() %>"><span class="fa fa-user-circle"></span> <%= patient.getName()%></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../LogoutServlet?user=patient"><span class="fa fa-arrow-right-from-bracket"></span> Logout</a>
+                    <a class="nav-link" href="LogoutServlet?user=patient"><span class="fa fa-arrow-right-from-bracket"></span> Logout</a>
                 </li>
                 <%
                     }

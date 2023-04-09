@@ -9,7 +9,7 @@
     } else if (doctor_user != null) {
         response.sendRedirect("doctor_dashboard.jsp");
     } else if (patient_user != null) {
-        response.sendRedirect("doctor_dashboard.jsp");
+        response.sendRedirect("patient_dashboard.jsp");
     }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,14 +34,14 @@
         <!-- Navbar -->
         <%@include file="page-components/navbar.jsp" %>
         <!-- Register Form -->
-        <div class="container-fluid primary-background p-5 text-white">
+        <div class="container-fluid p-5">
             <div class="row">
-                <div class="card col-md-4 offset-md-4 primary-background border-0">
-                    <div class="card-header text-center border border-light">
+                <div class="card col-md-4 offset-md-4 p-0 border-0">
+                    <div class="card-header primary-background text-center text-white">
                         <span class="fa fa-user-plus fa-2x"></span>
                         <p>Patient Registration</p>
                     </div>
-                    <div class="card-body bg-white text-dark">
+                    <div class="card-body rounded-bottom border-start border-end border-bottom border-primary">
                         <form id="register-form">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
