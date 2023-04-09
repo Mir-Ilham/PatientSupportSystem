@@ -1,4 +1,8 @@
 <%--<%@page errorPage="error_page.jsp" %>--%>
+<%@page import="com.patient_support_system.dao.AppointmentDao"%>
+<%@page import="com.patient_support_system.helper.ConnectionProvider"%>
+<%@page import="com.patient_support_system.entities.Appointment"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.patient_support_system.entities.Doctor" %>
 <%
     Doctor doctor_user = (Doctor) session.getAttribute("currentDoctor");
@@ -28,7 +32,37 @@
     <body>
         <!-- Navbar -->
         <%@include file="../page-components/user_navbar.jsp" %>
-        <h1>View appointments</h1>
+        <!-- Table -->
+        <%  
+            int id = doctor.getDoctorId();
+            ArrayList<Appointment> appointments = new ArrayList<>();
+            AppointmentDao dao = new AppointmentDao(ConnectionProvider.getConnection());
+            appointments = dao.getAllDoctorAppointments(id);
+        %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Appointment id</th>
+                    <th scope="col">Patient id</th>
+                    <th scope="col">Appointment date</th>
+                    <th scope="col">Appointment time</th>
+                </tr>
+            </thead>
+            <tbody>       
+                <%
+                    for (Appointment a : appointments) {
+                %>
+                <tr>
+                    <th scope="row"><%= a.getAppointmentId() %></th>
+                    <td><a href="../shared-views/view_patient_detail.jsp?id=<%= a.getPatientId() %>"><%= a.getPatientId() %></a></td>
+                    <td><%= a.getAppointmentDate() %></td>
+                    <td><%= a.getAppointmentTime() %></td>
+                </tr>                
+                <%
+                    }
+                %>
+            </tbody>
+        </table>
         <!-- Bootstrap Bundle with Popper -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles/main.css" />
+        <link rel="stylesheet" href="../styles/main.css" />
         <!-- Bootstrap CSS -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -21,6 +21,7 @@
         <!-- Navbar -->
         <%@include file="../page-components/user_navbar.jsp" %>
         <h1>View doctor's detail</h1>
+        <%= request.getParameter("id") %>
         <!-- Bootstrap Bundle with Popper -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

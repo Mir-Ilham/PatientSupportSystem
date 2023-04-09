@@ -13,20 +13,22 @@ public class AnswerDao {
     }
 
     // DAO methods
-    public boolean saveAnswer(Answer answer) {
+    public boolean saveAnswers(ArrayList<Answer> answers) {
         // Insert answer data into database
         boolean insertedSuccessfully = false;
-        try {
-            String query = "INSERT into answer (patient_id, question_id, answer_text) VALUES(?, ?, ?)";
-            PreparedStatement pstmt = con.prepareStatement(query);
-            pstmt.setInt(1, answer.getPatientId());
-            pstmt.setInt(2, answer.getQuestionId());
-            pstmt.setString(3, answer.getAnswerText());
-            pstmt.executeUpdate();
-            insertedSuccessfully = true;
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        for (Answer answer : answers) {
+            try {
+                String query = "INSERT into answer (patient_id, question_id, answer_text) VALUES(?, ?, ?)";
+                PreparedStatement pstmt = con.prepareStatement(query);
+                pstmt.setInt(1, answer.getPatientId());
+                pstmt.setInt(2, answer.getQuestionId());
+                pstmt.setString(3, answer.getAnswerText());
+                pstmt.executeUpdate();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
+        insertedSuccessfully = true;
         return insertedSuccessfully;
     }
 
@@ -58,4 +60,3 @@ public class AnswerDao {
         return answers;
     }
 }
-

@@ -13,7 +13,6 @@
     }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.patient_support_system.entities.Message"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,17 +42,6 @@
                         <p>Patient Registration</p>
                     </div>
                     <div class="card-body bg-white text-dark">
-                        <%
-                            Message msg = (Message) session.getAttribute("msg");
-                            if (msg != null) {
-                        %>
-                        <div class="alert <%= msg.getCssClass()%> p-1" role="alert">
-                            <%= msg.getContent()%>
-                        </div>
-                        <%
-                                session.removeAttribute("msg");
-                            }
-                        %>
                         <form id="register-form">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>

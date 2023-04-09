@@ -1,3 +1,6 @@
+<%@page import="com.patient_support_system.dao.PatientDao"%>
+<%@page import="com.patient_support_system.helper.ConnectionProvider"%>
+<%@page import="java.util.ArrayList"%>
 <%
     if (session.getAttribute("currentUser") == null) {
         response.sendRedirect("login_page.jsp");
@@ -26,7 +29,40 @@
     <body>
         <!-- Navbar -->
         <%@include file="../page-components/user_navbar.jsp" %>
-        <h1>View patients</h1>
+        <!-- Table -->
+        <%            
+            ArrayList<Patient> patients = new ArrayList<>();
+            PatientDao dao = new PatientDao(ConnectionProvider.getConnection());
+            patients = dao.getAllPatients();
+        %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date of birth</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Blood group</th>
+                    <th scope="col">Date registered</th>
+                </tr>
+            </thead>
+            <tbody>       
+                <%
+                    for (Patient p : patients) {
+                %>
+                <tr>
+                    <th scope="row"><%= p.getPatientId()%></th>
+                    <td><a href="view_patient_answers.jsp?id=<%= p.getPatientId()%>"><%= p.getName()%></a></td>
+                    <td><%= p.getDateOfBirth()%></td>
+                    <td><%= p.getGender()%></td>
+                    <td><%= p.getBloodGroup()%></td>
+                    <td><%= p.getDateRegistered()%></td>
+                </tr>                
+                <%
+                    }
+                %>
+            </tbody>
+        </table>
         <!-- Bootstrap Bundle with Popper -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

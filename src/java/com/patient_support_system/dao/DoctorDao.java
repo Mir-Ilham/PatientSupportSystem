@@ -21,7 +21,7 @@ public class DoctorDao {
             PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, doctor.getName());
             pstmt.setString(2, doctor.getPassword());
-            pstmt.setString(4, doctor.getSpecialization());
+            pstmt.setString(3, doctor.getSpecialization());
             pstmt.executeUpdate();
             insertedSuccessfully = true;
         } catch (Exception ex) {

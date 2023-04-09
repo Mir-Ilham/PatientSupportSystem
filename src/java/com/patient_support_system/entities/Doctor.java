@@ -17,8 +17,7 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(String doctorProfile, String name, String password, String specialization) {
-        this.doctorProfile = doctorProfile;
+    public Doctor(String name, String password, String specialization) {
         this.name = name;
         this.password = password;
         this.specialization = specialization;

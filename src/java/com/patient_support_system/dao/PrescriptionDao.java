@@ -17,7 +17,7 @@ public class PrescriptionDao {
         // Insert prescription data into database
         boolean insertedSuccessfully = false;
         try {
-            String query = "INSERT into patient (doctor_id, patient_id, end_date, prescription_text) VALUES(?, ?, ?, ?)";
+            String query = "INSERT INTO prescription (doctor_id, patient_id, end_date, prescription_text) VALUES(?, ?, ?, ?)";
             PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setInt(1, prescription.getDoctorId());
             pstmt.setInt(2, prescription.getPatientId());
@@ -38,7 +38,7 @@ public class PrescriptionDao {
         Prescription prescription = null;
 
         try {
-            String query = "SELECT prescription_id, patient_id, date_prescribed FROM doctor"
+            String query = "SELECT prescription_id, patient_id, date_prescribed FROM prescription "
                     + "WHERE doctor_id = ? "
                     + "ORDER BY prescription_id, date_prescribed";
             PreparedStatement pstmt = con.prepareStatement(query);
@@ -49,10 +49,8 @@ public class PrescriptionDao {
             while (set.next()) {
                 prescription = new Prescription();
                 prescription.setPrescriptionId(set.getInt("prescription_id"));
-                prescription.setDoctorId(set.getInt("doctor_id"));
                 prescription.setPatientId(set.getInt("patient_id"));
                 prescription.setDatePrescribed(set.getTimestamp("date_prescribed"));
-                prescription.setEndDate(set.getDate("end_date"));
                 prescriptions.add(prescription);
             }
         } catch (Exception e) {
@@ -68,7 +66,7 @@ public class PrescriptionDao {
         Prescription prescription = null;
 
         try {
-            String query = "SELECT prescription_id, doctor_id, date_prescribed FROM patient"
+            String query = "SELECT prescription_id, doctor_id, date_prescribed FROM prescription "
                     + "WHERE patient_id = ? "
                     + "ORDER BY prescription_id, date_prescribed";
             PreparedStatement pstmt = con.prepareStatement(query);

@@ -1,3 +1,7 @@
+<%@page import="com.patient_support_system.dao.QuestionDao"%>
+<%@page import="com.patient_support_system.helper.ConnectionProvider"%>
+<%@page import="com.patient_support_system.entities.Question"%>
+<%@page import="java.util.ArrayList"%>
 <%
     if (session.getAttribute("currentUser") == null) {
         response.sendRedirect("login_page.jsp");
@@ -26,7 +30,32 @@
     <body>
         <!-- Navbar -->
         <%@include file="../page-components/user_navbar.jsp" %>
-        <h1>View questions</h1>
+        <!-- Table -->
+        <%            
+            ArrayList<Question> questions = new ArrayList<>();
+            QuestionDao dao = new QuestionDao(ConnectionProvider.getConnection());
+            questions = dao.getAllQuestions();
+        %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Question</th>
+                </tr>
+            </thead>
+            <tbody>       
+                <%
+                    for (Question q : questions) {
+                %>
+                <tr>
+                    <th scope="row"><%= q.getQuestionId()%></th>
+                    <td><%= q.getQuestionText()%></td>
+                </tr>                
+                <%
+                    }
+                %>
+            </tbody>
+        </table>
         <!-- Bootstrap Bundle with Popper -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

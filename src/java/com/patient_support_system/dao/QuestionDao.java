@@ -44,14 +44,6 @@ public class QuestionDao {
                 question.setQuestionText(set.getString("question_text"));
                 questions.add(question);
             }
-        
-        // If the above loop skips a row then run the loop below instead
-//            do {
-//                question = new Question();
-//                question.setQuestionText(set.getString("question_text"));
-//                questions.add(question);
-//            } while (set.next());
-
         } catch (Exception e) {
             e.printStackTrace();
         }
