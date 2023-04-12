@@ -49,7 +49,7 @@
                             </a>
                         </li>
                         <li class="list-group-item border-primary">
-                            <a href="view_doctor_detail.jsp?id=<%= selected.getPatientId()%>">
+                            <a href="view_patient_detail.jsp?id=<%= selected.getPatientId()%>">
                                 Patient id: <%= selected.getPatientId()%>
                             </a>
                         </li>
