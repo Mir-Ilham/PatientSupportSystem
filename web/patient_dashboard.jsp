@@ -29,17 +29,30 @@
         <!-- Navbar -->
         <%@include file="page-components/user_navbar_home.jsp" %>
         <!-- Patient options -->
-        <div class="container-fluid primary-background p-5 text-white">
+        <div class="container pt-5">
             <div class="row">
-                <div class="card col-md-4 offset-md-4 primary-background border-0">
-                    <div class="card-header text-center border border-light">
+                <div class="card col-md-4 rounded border-0 p-0">
+                    <div class="card-header primary-background text-white text-center">
+                        <span class="fa-solid fa-hospital-user fa-2x"></span>
                         <p>Patient Options</p>
                     </div>
-                    <div class="card-body bg-white text-dark">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><a href="patient-views/view_questionnaire.jsp">Respond to questionnaire</a></li>
-                            <li class="list-group-item"><a href="patient-views/view_appointments.jsp">View appointments</a></li>
-                            <li class="list-group-item"><a href="patient-views/view_prescriptions.jsp">View prescriptions</a></li>
+                    <div class="card-body rounded-bottom border-start border-end border-bottom border-primary">
+                        <ul class="list-group list-group-flush text-center">
+                            <li class="list-group-item border-0">
+                                <a class="btn btn-outline-primary text-start ps-4" style="width: 16rem" href="patient-views/view_questionnaire.jsp">
+                                    <span class="fa-solid fa-align-left"></span> &nbsp;Respond to questionnaire
+                                </a>
+                            </li>
+                            <li class="list-group-item border-0">
+                                <a class="btn btn-outline-primary text-start ps-4" style="width: 16rem" href="patient-views/view_appointments.jsp">
+                                    <span class="fa-regular fa-calendar-check"></span> &nbsp;View appointments
+                                </a>
+                            </li>
+                            <li class="list-group-item border-0">
+                                <a class="btn btn-outline-primary text-start ps-4" style="width: 16rem" href="patient-views/view_prescriptions.jsp">
+                                    <span class="fa-solid fa-prescription-bottle-medical"></span> &nbsp;View prescriptions
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

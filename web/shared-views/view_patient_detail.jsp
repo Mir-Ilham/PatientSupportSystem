@@ -16,7 +16,15 @@
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
               integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
               crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="scripts/adminViewController.js" type="text/javascript" defer></script>
+        <script src="../scripts/backFunctionality.js" type="text/javascript" defer></script>
+        <style>
+            .btn-custom {
+                padding: 8px 8px;
+                border-radius: 5px;
+                text-decoration: none;
+                margin-right: 10px;
+            }
+        </style>
         <title>View patient's detail</title>
     </head>
     <body>
@@ -27,13 +35,26 @@
             Patient selected = dao.getPatientById(patientId);
         %>   
         <div class="container p-4">
+            <div class="mb-3">
             <%            
                 if (admin == null && patient == null) {
             %>
-            <a class="btn primary-background text-light mb-3" href="../doctor-views/add_prescription.jsp?id=<%= patientId%>">Add prescription</a>
+                <a href="../doctor_dashboard.jsp" class="btn-custom primary-background text-light">
+                    <span class="fa-solid fa-arrow-left"></span>
+                    Back
+                </a>
+                <a class="btn btn-outline-primary" href="../doctor-views/add_prescription.jsp?id=<%= patientId%>">Add prescription</a>
+            <%
+                } else {
+            %>
+                <a href="#" class="btn primary-background text-light">
+                    <span class="fa-solid fa-arrow-left"></span>
+                    Back
+                </a>
             <%
                 }
             %>
+            </div>
             <div class="card border-primary" style="width: 20rem;">
                 <img src="../images/default.png" class="card-img-top" alt="Doctor profile picture">
                 <div class="card-body">

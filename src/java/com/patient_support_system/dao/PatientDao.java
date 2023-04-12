@@ -99,7 +99,7 @@ public class PatientDao {
 
             ResultSet set = statement.executeQuery(query);
 
-            if (set.next()) {
+            while (set.next()) {
                 patient = new Patient();
                 patient.setPatientId(set.getInt("patient_id"));
                 patient.setName(set.getString("name"));

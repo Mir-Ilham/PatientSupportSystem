@@ -26,14 +26,18 @@
         <!-- Navbar -->
         <%@include file="../page-components/user_navbar.jsp" %>
         <!-- Add doctor form -->
-        <div class="container-fluid primary-background p-5 text-white">
+        <div class="container-fluid p-5">
+            <a href="../admin_dashboard.jsp" class="btn primary-background text-light">
+                <span class="fa-solid fa-arrow-left"></span>
+                Back
+            </a>
             <div class="row">
-                <div class="card col-md-4 offset-md-4 primary-background border-0">
-                    <div class="card-header text-center border border-light">
-                        <span class="fa fa-user-plus fa-2x"></span>
+                <div class="card col-md-4 offset-md-4 rounded border-0 p-0">
+                    <div class="card-header primary-background text-white text-center">
+                        <span class="fa fa-user-doctor fa-2x"></span>
                         <p>Add doctor</p>
                     </div>
-                    <div class="card-body bg-white text-dark">
+                    <div class="card-body rounded-bottom border-start border-end border-bottom border-primary">
                         <form id="add-doctor-form">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
@@ -107,8 +111,8 @@
 
                 form.addEventListener("submit", (event) => {
                     event.preventDefault();
-
                     sendData();
+                    form.reset();
                 });
             });
         </script>

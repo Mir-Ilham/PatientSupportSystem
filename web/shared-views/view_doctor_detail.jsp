@@ -16,7 +16,7 @@
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
               integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
               crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="scripts/adminViewController.js" type="text/javascript" defer></script>
+        <script src="../scripts/backFunctionality.js" type="text/javascript" defer></script>
         <title>View doctor's detail</title>
     </head>
     <body>
@@ -28,6 +28,10 @@
             Doctor selected = dao.getDoctorById(doctorId);
         %>
         <div class="container p-4">
+            <a href="#" class="btn primary-background text-light mb-3">
+                <span class="fa-solid fa-arrow-left"></span>
+                Back
+            </a>
             <div class="card border-primary" style="width: 20rem;">
                 <img src="../images/<%= selected.getDoctorProfile()%>" class="card-img-top" alt="Doctor profile picture">
                 <div class="card-body">

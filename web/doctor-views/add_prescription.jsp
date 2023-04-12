@@ -31,14 +31,18 @@
         <!-- Add prescription form -->
         <%            String id = request.getParameter("id");
         %>
-        <div class="container-fluid primary-background p-5 text-white">
+        <div class="container-fluid p-5">
+            <a href="../shared-views/view_patient_detail.jsp?id=<%= id %>" class="btn primary-background text-light">
+                <span class="fa-solid fa-arrow-left"></span>
+                Back
+            </a>
             <div class="row">
-                <div class="card col-md-4 offset-md-4 primary-background border-0">
-                    <div class="card-header text-center border border-light">
-                        <span class="fa fa-user-plus fa-2x"></span>
+                <div class="card col-md-4 offset-md-4 rounded border-0 p-0">
+                    <div class="card-header primary-background text-white text-center">
+                        <span class="fa-solid fa-prescription-bottle-medical fa-2x"></span>
                         <p>Add prescription</p>
                     </div>
-                    <div class="card-body bg-white text-dark">
+                    <div class="card-body rounded-bottom border-start border-end border-bottom border-primary">
                         <form id="add-prescription-form">
                             <input type="hidden" name="patient-id" value="<%=id%>">
                             <input type="hidden" name="doctor-id" value="<%=doctor.getDoctorId()%>">
@@ -110,8 +114,8 @@
 
                 form.addEventListener("submit", (event) => {
                     event.preventDefault();
-
                     sendData();
+                    form.reset();
                 });
             });
         </script>

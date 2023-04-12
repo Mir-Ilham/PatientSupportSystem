@@ -32,12 +32,18 @@
     <body>
         <!-- Navbar -->
         <%@include file="../page-components/user_navbar.jsp" %>
-        <h1>View patient's answer</h1>
         <%
             int id = Integer.parseInt(request.getParameter("id"));
         %>
-        <a href="add_appointment.jsp?id=<%= id%>">Add appointment</a>
         <div class="container">
+            <h3 class="text-custom mb-4 mt-2">Responses by patient id <%= id %></h3>
+            <div class="mb-3">
+                <a href="view_patients.jsp" class="btn primary-background text-light">
+                    <span class="fa-solid fa-arrow-left"></span>
+                    Back
+                </a>
+                <a class="btn btn-outline-primary" href="add_appointment.jsp?id=<%= id%>">Add appointment</a>
+            </div>
             <div class="card p-4 mb-3 border border-primary" style="width: 40rem">
                 <%            
                     ArrayList<Question> questions = new ArrayList<>();

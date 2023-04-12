@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a  href="home.jsp" class="nav-link active" aria-current="page"><span class="fa fa-square-h"></span> Home</a>
+                    <a  href="home.jsp" class="nav-link" aria-current="page"><span class="fa fa-square-h"></span> Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="login_page.jsp" class="nav-link"><span class="fa fa-address-card"></span> Login</a>

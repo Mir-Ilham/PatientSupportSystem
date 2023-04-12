@@ -17,6 +17,7 @@
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
               integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
               crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="../scripts/backFunctionality.js" type="text/javascript" defer></script>
         <title>View prescription details</title>
     </head>
     <body>
@@ -28,6 +29,10 @@
             Prescription selected = dao.getPrescriptionById(prescriptionId);
         %>
         <div class="container p-4">
+            <a href="#" class="btn primary-background text-light mb-3">
+                <span class="fa-solid fa-arrow-left"></span>
+                Back
+            </a>
             <div class="card border-primary" style="width: 20rem;">
                 <div class="card-body">
                     <h5 class="card-title text-custom">Prescription <%= selected.getPrescriptionId()%></h5>

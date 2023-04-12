@@ -29,13 +29,20 @@
     <body>
         <!-- Navbar -->
         <%@include file="../page-components/user_navbar.jsp" %>
+        <div class="container-fluid p-5">
+            <a href="../admin_dashboard.jsp" class="btn primary-background text-light">
+                <span class="fa-solid fa-arrow-left"></span>
+                Back
+            </a>
+        <div class="row">
+        <div class="col-md-8 offset-md-2">
         <!-- Table -->
         <%            
             ArrayList<Patient> patients = new ArrayList<>();
             PatientDao dao = new PatientDao(ConnectionProvider.getConnection());
             patients = dao.getAllPatients();
         %>
-        <table class="table">
+        <table class="table table-striped border border-1">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
@@ -66,6 +73,9 @@
                 %>
             </tbody>
         </table>
+        </div>
+        </div>
+        </div>
         <!-- Bootstrap Bundle with Popper -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
